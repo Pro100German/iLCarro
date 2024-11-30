@@ -14,6 +14,5 @@ public class RegistrationTests extends ApplicationManager {
         int i = new Random().nextInt(1000);
         new HomePage(getDriver()).clickBtnSignUp();
         new RegistrationPage(getDriver()).typeRegistrationForm("German","Kogan","frodo_baggins_"+i+"@ua.com","Password123!");
-
     }
 }
