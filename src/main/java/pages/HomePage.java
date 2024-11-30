@@ -14,7 +14,7 @@ public class HomePage extends BasePage{
     }
     @FindBy(xpath = "//a[@ng-reflect-router-link='login']")
     WebElement btnLogin;
-    @FindBy(xpath = "//a[@class='navigation-link ng-star-inserted']")
+    @FindBy(xpath = "//a[text()=' Sign up ']")
     WebElement btnSignUp;
 
     public void clickBtnLoginHeader(){
@@ -22,8 +22,9 @@ public class HomePage extends BasePage{
         pause(3);
     }
     public void clickBtnSignUp(){
+
         btnSignUp.click();
-        pause(3);
+        pause(2);
     }
 
 }

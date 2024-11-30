@@ -3,7 +3,6 @@ package tests;
 import manager.ApplicationManager;
 import org.testng.annotations.Test;
 import pages.HomePage;
-import pages.LoginPage;
 import pages.RegistrationPage;
 
 import java.util.Random;

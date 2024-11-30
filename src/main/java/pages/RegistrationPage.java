@@ -20,10 +20,12 @@ public class RegistrationPage extends BasePage{
     WebElement inputEmail;
     @FindBy(xpath = "//input[@id='password']")
     WebElement inputPassword;
-    @FindBy(xpath = "//input[@id='terms-of-use']")
+    @FindBy(xpath = "//label[@for='terms-of-use']")
     WebElement btnCheckBox;
     @FindBy(xpath = "//button[@type='submit']")
     WebElement btnYalla;
+    @FindBy(xpath = "//button[@type='button']")
+    WebElement btnOk;
 
     public void typeRegistrationForm(String name, String lastName, String email, String password){
         inputName.sendKeys(name);
@@ -32,6 +34,7 @@ public class RegistrationPage extends BasePage{
         inputPassword.sendKeys(password);
         btnCheckBox.click();
         btnYalla.click();
+        btnOk.click();
 
     }
 
