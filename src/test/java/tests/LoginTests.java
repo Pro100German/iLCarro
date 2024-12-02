@@ -8,11 +8,10 @@ import pages.LoginPage;
 public class LoginTests extends ApplicationManager {
 
 
-
     @Test
-    public void loginPositiveTest(){
+    public void loginPositiveTest() {
         new HomePage(getDriver()).clickBtnLoginHeader();
-        new LoginPage(getDriver()).typeLoginForm("myphone@gmail.com","German1234!");
+        new LoginPage(getDriver()).typeLoginForm("myphone@gmail.com", "German1234!");
 
 
     }
