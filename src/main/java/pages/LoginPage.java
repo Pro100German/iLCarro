@@ -1,5 +1,6 @@
 package pages;
 
+import dto.UserDtoLombok;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,12 +21,28 @@ public class LoginPage extends BasePage {
     WebElement btnYalla;
     @FindBy(xpath = "//button[@type='button']")
     WebElement btnOk;
+    @FindBy(xpath = "//h2[@class='message']")
+    WebElement popUpMessage;
+    //h2[@class='message']
 
-    public void typeLoginForm(String email, String password) {
-        inputEmail.sendKeys(email);
-        inputPassword.sendKeys(password);
-        btnYalla.click();
-        btnOk.click();
+    public void typeLoginForm(UserDtoLombok user){
+        inputEmail.sendKeys(user.getEmail());
+        inputPassword.sendKeys(user.getPassword());
+
     }
+    public void clickBtnYalla(){
+        btnYalla.click();
+    }
+    public boolean isPopUpMessagePresent(){
+        return isTextInElementPresent(popUpMessage,"Logged in success");
+
+    }
+//    public void typeLoginForm(String email, String password) {
+//        inputEmail.sendKeys(email);
+//        inputPassword.sendKeys(password);
+//        btnYalla.click();
+//        btnOk.click();
+//
+//    }
 
 }
