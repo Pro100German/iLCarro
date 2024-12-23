@@ -40,6 +40,10 @@ public class LetCarWorkPage extends BasePage{
     WebElement inputAbout;
     @FindBy(xpath = "//button[@type='submit']")
     WebElement btnSubmit;
+    @FindBy(xpath = "//div[@class='error ng-star-inserted']")
+    WebElement manufactureErrorMessage;
+
+
 
     public void typeLetCarWorkForm(CarDto car) {
         inputLocation.sendKeys(car.getCity());
@@ -62,6 +66,9 @@ public class LetCarWorkPage extends BasePage{
     }
     public boolean isPopUpMessagePresent(String text){
         return isTextInElementPresent(popUpMessage,text);
+    }
+    public static boolean textManufactureErrorMessage(String text) {
+       return new BasePage().isTextInElementPresent("//div[@class='error ng-star-inserted']","Make is required");
     }
 
 
