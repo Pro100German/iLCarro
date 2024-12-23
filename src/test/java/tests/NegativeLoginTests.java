@@ -12,7 +12,7 @@ public class NegativeLoginTests extends ApplicationManager {
 
 
     @Test
-    public void loginPositiveTest() {
+    public void loginPositiveTestWrongPassword() {
         UserDtoLombok user = UserDtoLombok.builder()
                 .email("myphone@gmail.com")
                 .password("German1234")

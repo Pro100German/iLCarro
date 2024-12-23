@@ -2,6 +2,7 @@ package tests;
 
 import dto.UserDtoLombok;
 import manager.ApplicationManager;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LoginPage;
@@ -22,8 +23,7 @@ public class LoginTests extends ApplicationManager {
         loginPage = new LoginPage(getDriver());
         loginPage.typeLoginForm(user);
         loginPage.clickBtnYalla();
-
-
+        Assert.assertTrue(loginPage.isPopUpMessagePresent());
 
     }
 }

@@ -32,4 +32,64 @@ public class RegistrationTests extends ApplicationManager {
       //  new HomePage(getDriver()).clickBtnSignUp();
       //  new RegistrationPage(getDriver()).typeRegistrationForm("German", "Kogan", "frodo_baggins_" + i + "@ua.com", "Password123!");
     }
+    @Test
+    public void registrationNegativeTestWrongEmail(){
+        UserDtoLombok user = UserDtoLombok.builder()
+                .name("Bob")
+                .lastName("Doe")
+                .email("bobi_@ua..com")
+                .password("Password1234!")
+                .build();
+        new HomePage(getDriver()).clickBtnSignUp();
+        registrationPage = new RegistrationPage(getDriver());
+        registrationPage.typeRegistrationForm(user);
+        registrationPage.clickCheckBox();
+        registrationPage.clickBtnYalla();
+        Assert.assertTrue(registrationPage.validateErrorMessege("Wrong email format"));
+    }
+    @Test
+    public void registrationNegativeTestWrongName(){
+        UserDtoLombok user = UserDtoLombok.builder()
+                .name(" ")
+                .lastName("Asd")
+                .email("bobi_@ua.com")
+                .password("Password1234!")
+                .build();
+        new HomePage(getDriver()).clickBtnSignUp();
+        registrationPage = new RegistrationPage(getDriver());
+        registrationPage.typeRegistrationForm(user);
+        registrationPage.clickCheckBox();
+        registrationPage.clickBtnYalla();
+        Assert.assertFalse(registrationPage.textNameErrorMessage());
+    }
+    @Test
+    public void registrationNegativeTestWrongLastName(){
+        UserDtoLombok user = UserDtoLombok.builder()
+                .name("Asd")
+                .lastName(" ")
+                .email("bobi_@ua.com")
+                .password("Password1234!")
+                .build();
+        new HomePage(getDriver()).clickBtnSignUp();
+        registrationPage = new RegistrationPage(getDriver());
+        registrationPage.typeRegistrationForm(user);
+        registrationPage.clickCheckBox();
+        registrationPage.clickBtnYalla();
+        Assert.assertTrue(registrationPage.isPopUpMessagePresent("не должно быть пустым"));
+    }
+    @Test
+    public void registrationNegativeTestWrongPassword(){
+        UserDtoLombok user = UserDtoLombok.builder()
+                .name("Asd")
+                .lastName("Bob")
+                .email("bobi_@ua.com")
+                .password("Password")
+                .build();
+        new HomePage(getDriver()).clickBtnSignUp();
+        registrationPage = new RegistrationPage(getDriver());
+        registrationPage.typeRegistrationForm(user);
+        registrationPage.clickCheckBox();
+        registrationPage.clickBtnYalla();
+    }
+
 }

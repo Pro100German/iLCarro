@@ -21,9 +21,17 @@ public class LoginPage extends BasePage {
     WebElement btnYalla;
     @FindBy(xpath = "//button[@type='button']")
     WebElement btnOk;
-    @FindBy(xpath = "//h2[@class='message']")
-    WebElement popUpMessage;
     //h2[@class='message']
+    @FindBy(id="1")
+    WebElement btnLetCarWork;
+
+    public void clickBtnOk(){
+        clickWait(btnOk,5);
+    }
+
+    public void clickBtnLetCarWork(){
+        clickWait(btnLetCarWork,5);
+    }
 
     public void typeLoginForm(UserDtoLombok user){
         inputEmail.sendKeys(user.getEmail());
@@ -37,12 +45,12 @@ public class LoginPage extends BasePage {
         return isTextInElementPresent(popUpMessage,"Logged in success");
 
     }
-//    public void typeLoginForm(String email, String password) {
-//        inputEmail.sendKeys(email);
-//        inputPassword.sendKeys(password);
-//        btnYalla.click();
-//        btnOk.click();
-//
-//    }
+    public void typeLoginForm(String email, String password) {
+        inputEmail.sendKeys(email);
+        inputPassword.sendKeys(password);
+        btnYalla.click();
+        btnOk.click();
+
+    }
 
 }
